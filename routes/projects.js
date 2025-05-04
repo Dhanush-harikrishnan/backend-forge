@@ -298,11 +298,22 @@ router.patch('/:id/roadmap-item/:itemId', async (req, res) => {
 // Get trending projects - IMPORTANT: This must come before the /:id route to avoid conflicts
 router.get('/community/trending', async (req, res) => {
     try {
-        // Get projects with most stars and forks, limited to 6
-        const trendingProjects = await Project.find({ isPublic: true })
-            .populate('user', 'username name')
-            .sort({ stars: -1, forks: -1, createdAt: -1 })
-            .limit(6);
+        // Get projects with most stars and forks in the last 30 days, prioritizing projects
+        // with high engagement (a combination of stars and forks)
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        
+        const trendingProjects = await Project.find({
+            isPublic: true,
+            updatedAt: { $gte: thirtyDaysAgo }
+        })
+        .populate('user', 'username name')
+        .sort({ 
+            // Prioritize projects with combined stars and forks
+            // This will show projects with highest combined engagement first
+            $expr: { $add: ["$stars", { $multiply: ["$forks", 1.5] }] } // Giving more weight to forks
+        })
+        .limit(12); // Increased limit to show more trending projects
         
         res.json(trendingProjects);
     } catch (error) {
@@ -522,28 +533,6 @@ router.post('/community/:id/fork', authenticateToken, async (req, res) => {
     } catch (error) {
         logger.error('Fork project error:', error);
         res.status(500).json({ error: 'Error forking project', details: error.message });
-    }
-});
-
-// Get trending projects
-router.get('/community/trending', async (req, res) => {
-    try {
-        // Get projects with most stars in the last 30 days
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-        
-        const trendingProjects = await Project.find({
-            isPublic: true,
-            updatedAt: { $gte: thirtyDaysAgo }
-        })
-        .populate('user', 'username name')
-        .sort({ stars: -1, forks: -1 })
-        .limit(10);
-        
-        res.json(trendingProjects);
-    } catch (error) {
-        logger.error('Fetch trending projects error:', error);
-        res.status(500).json({ error: 'Error fetching trending projects', details: error.message });
     }
 });
 

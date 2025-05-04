@@ -28,11 +28,31 @@ if (!fs.existsSync(logsDir)) {
 connectDB();
 
 // Security middleware
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  contentSecurityPolicy: false // Disable CSP for development/testing
+}));
+
+// Configure CORS with more permissive settings
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+  origin: [
+    'http://localhost:3000', 
+    'http://127.0.0.1:3000',
+    'https://track-pro.vercel.app', 
+    'https://frontend-forge.vercel.app',
+    'https://frontend-forge-git-main-dhanush-hs-projects.vercel.app',
+    'https://frontend-forge-lali5ugto-dhanush-hs-projects.vercel.app',
+    'https://frontend-forge-dhanush-hs-projects.vercel.app',
+    process.env.CLIENT_URL,
+    // Add your new Vercel deployment URL
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+    // If you know your exact Vercel URL, add it here explicitly
+    'https://protrack.vercel.app'
+  ].filter(Boolean),
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+  credentials: false, // Set to false since we're using 'omit' on the frontend
+  maxAge: 86400 // Cache preflight requests for 24 hours
 }));
 
 // Rate limiting
@@ -56,6 +76,11 @@ const __dirname = path.dirname(__filename);
 // Serve static files
 app.use('/static', express.static(path.join(__dirname, 'uploads')));
 
+// Health check endpoint - specifically for frontend connection checks
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'API is healthy' });
+});
+
 // API routes
 app.use('/api', routes);
 
@@ -63,9 +88,6 @@ app.use('/api', routes);
 app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
-
-// Error handling middleware
-app.use(errorHandler);
 
 // Error handling middleware
 app.use(errorHandler);

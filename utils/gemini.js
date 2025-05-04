@@ -282,7 +282,11 @@ export const generateProjects = async (params = {}) => {
       }
     ]
     
-    IMPORTANT: The response must be a valid, parseable JSON array exactly matching this structure. Each project must be completely different from the others and specifically tailored to the skills and interests provided.`;
+    IMPORTANT: 
+    1. The response must be a valid, parseable JSON array exactly matching this structure.
+    2. Each project must be completely different from the others and specifically tailored to the skills and interests provided.
+    3. Do not use markdown formatting like ## headings, *, -, or _ for formatting.
+    4. Present all information as plain text within the JSON structure.`;
 
     const responseText = await generateContent(prompt);
     
@@ -296,13 +300,20 @@ export const generateProjects = async (params = {}) => {
     // Parse the JSON response from the text
     try {
       const projectIdeas = JSON.parse(jsonText);
-      return projectIdeas;
+      // Clean any markdown that might still be present
+      return cleanMarkdownFromObject(projectIdeas);
     } catch (parseError) {
       logger.error('JSON parse error:', parseError, 'Raw text:', jsonText);
       // Try to find any JSON-like structure in the response as a fallback
       const possibleJson = responseText.match(/\[[\s\S]*\]/);
       if (possibleJson) {
-        return JSON.parse(possibleJson[0]);
+        try {
+          const parsedData = JSON.parse(possibleJson[0]);
+          return cleanMarkdownFromObject(parsedData);
+        } catch(error) {
+          logger.error('Second JSON parse error:', error);
+          return getDefaultProjectIdeas(skillsList, interestsList);
+        }
       }
       
       // Return default project ideas if parsing fails
@@ -445,7 +456,9 @@ export const generateTechRoadmap = async (params = {}) => {
     2. Do not include any additional text before or after the JSON.
     3. Ensure all quotes and braces are properly balanced.
     4. All URLs should be valid (use placeholder URLs like example.com if needed).
-    5. Do not use special characters that would break JSON parsing.`;
+    5. Do not use markdown formatting like ## headings, *, -, or _ for formatting.
+    6. Present all information as plain text within the JSON structure.
+    7. Do not use special characters that would break JSON parsing.`;
 
     const responseText = await generateContent(prompt);
     
@@ -475,7 +488,10 @@ export const generateTechRoadmap = async (params = {}) => {
     // Try different approaches to parse the JSON
     try {
       // Attempt to parse the extracted JSON directly
-      return JSON.parse(jsonText);
+      const parsedData = JSON.parse(jsonText);
+      
+      // Ensure the parsed data doesn't contain markdown formatting
+      return cleanMarkdownFromObject(parsedData);
     } catch (parseError) {
       logger.warn(`Initial JSON parse error: ${parseError.message}`);
       
@@ -489,7 +505,9 @@ export const generateTechRoadmap = async (params = {}) => {
           // Replace single quotes with double quotes
           .replace(/'/g, '"');
         
-        return JSON.parse(fixedJson);
+        const parsedData = JSON.parse(fixedJson);
+        // Ensure the parsed data doesn't contain markdown formatting
+        return cleanMarkdownFromObject(parsedData);
       } catch (secondError) {
         logger.error(`JSON parse error after fixing common issues: ${secondError.message}`);
         
@@ -506,6 +524,62 @@ export const generateTechRoadmap = async (params = {}) => {
     return createDefaultRoadmap(tech, goal, time);
   }
 };
+
+/**
+ * Helper function to remove markdown formatting from any string in an object
+ * @param {*} obj - Object potentially containing markdown in string values
+ * @returns {*} - Object with cleaned text values
+ */
+function cleanMarkdownFromObject(obj) {
+  if (obj === null || typeof obj !== 'object') {
+    // If it's a string, remove markdown formatting
+    if (typeof obj === 'string') {
+      return cleanMarkdownFromString(obj);
+    }
+    return obj;
+  }
+
+  // Handle arrays
+  if (Array.isArray(obj)) {
+    return obj.map(item => cleanMarkdownFromObject(item));
+  }
+
+  // Handle objects
+  const result = {};
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      result[key] = cleanMarkdownFromObject(obj[key]);
+    }
+  }
+  return result;
+}
+
+/**
+ * Clean markdown formatting from a string
+ * @param {string} text - Text that may contain markdown
+ * @returns {string} - Cleaned text without markdown
+ */
+function cleanMarkdownFromString(text) {
+  if (typeof text !== 'string') return text;
+  
+  return text
+    // Remove heading markdown (## Heading)
+    .replace(/^#+\s+/gm, '')
+    // Remove bold/italic markdown
+    .replace(/(\*\*|\*|__|\\_)/g, '')
+    // Remove list markers
+    .replace(/^[\*\-\+]\s+/gm, '')
+    // Remove numbered lists
+    .replace(/^\d+\.\s+/gm, '')
+    // Remove blockquotes
+    .replace(/^>\s+/gm, '')
+    // Remove code blocks formatting
+    .replace(/```[a-z]*\n|```/g, '')
+    // Remove inline code formatting
+    .replace(/`([^`]+)`/g, '$1')
+    // Remove any remaining backslashes used for escaping
+    .replace(/\\([^\\])/g, '$1');
+}
 
 /**
  * Create a default roadmap structure when API response parsing fails

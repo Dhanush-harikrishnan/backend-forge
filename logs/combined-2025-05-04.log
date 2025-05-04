@@ -361,3 +361,25 @@
 2025-05-04 10:37:03 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
 2025-05-04 10:37:03 [info] : Server running on port 5000
 2025-05-04 10:37:04 [info] : MongoDB Connected: ac-rhfgblk-shard-00-01.bsnnsk6.mongodb.net
+2025-05-04 14:27:22 [info] : Uploads directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads
+2025-05-04 14:27:22 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
+2025-05-04 14:27:23 [info] : Server running on port 5000
+2025-05-04 14:27:24 [info] : MongoDB Connected: ac-rhfgblk-shard-00-01.bsnnsk6.mongodb.net
+2025-05-04 14:28:35 [info] : 127.0.0.1 - - [04/May/2025:08:58:35 +0000] "GET /static/resumes/681729622b08f3e365ec3629.html HTTP/1.1" 404 29 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-04 14:28:35 [info] : 127.0.0.1 - - [04/May/2025:08:58:35 +0000] "GET /favicon.ico HTTP/1.1" 404 29 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-04 14:34:40 [info] : Uploads directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads
+2025-05-04 14:34:40 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
+2025-05-04 14:34:40 [info] : Server running on port 5000
+2025-05-04 14:34:41 [info] : MongoDB Connected: ac-rhfgblk-shard-00-02.bsnnsk6.mongodb.net
+2025-05-04 14:35:53 [info] : Uploads directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads
+2025-05-04 14:35:53 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
+2025-05-04 14:35:53 [info] : Server running on port 5000
+2025-05-04 14:35:56 [info] : MongoDB Connected: ac-rhfgblk-shard-00-00.bsnnsk6.mongodb.net
+2025-05-04 14:41:20 [info] : Uploads directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads
+2025-05-04 14:41:20 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
+2025-05-04 14:41:21 [info] : Server running on port 5000
+2025-05-04 14:41:22 [info] : MongoDB Connected: ac-rhfgblk-shard-00-01.bsnnsk6.mongodb.net
+2025-05-04 14:41:34 [info] : Uploads directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads
+2025-05-04 14:41:34 [info] : Resumes directory: C:\Users\dhanu\Downloads\New folder (2)\TrackPro\server\uploads\resumes
+2025-05-04 14:41:34 [info] : Server running on port 5000
+2025-05-04 14:41:35 [info] : MongoDB Connected: ac-rhfgblk-shard-00-02.bsnnsk6.mongodb.net
