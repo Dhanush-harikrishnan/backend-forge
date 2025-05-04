@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhanush H - Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @page {
+      size: letter;
+      margin: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #111827;
+    }
+    .page {
+      width: 8.5in;
+      height: 11in;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      background-color: white;
+      margin: 0 auto;
+    }
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      .page {
+        box-shadow: none;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+    .section-heading {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .section-heading::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      background-color: #d1d5db;
+      margin-left: 1rem;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .contact-info span {
+      display: flex;
+      align-items: center;
+    }
+    .contact-info span:not(:last-child)::after {
+      content: '•';
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="no-print fixed top-4 right-4 flex gap-2">
+    <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">Print/Save PDF</button>
+    <button onclick="window.close()" class="bg-gray-600 text-white px-4 py-2 rounded shadow hover:bg-gray-700">Close</button>
+  </div>
+
+  <div class="page mx-auto my-8 p-8 bg-white">
+    <!-- Header -->
+    <header class="text-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-900">Dhanush H</h1>
+      <div class="contact-info text-sm mt-2 text-gray-600">
+        <span>dhanushhari150504@gmail.com</span>
+        
+        
+      </div>
+      <div class="contact-info text-sm mt-1 text-gray-600">
+        
+        
+        
+      </div>
+    </header>
+
+    <!-- Summary Section -->
+    
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 section-heading">Professional Summary</h2>
+      <p class="text-gray-700">Highly motivated and results-oriented third-year B.Tech student in Computer Science and Business Systems with a proven track record in project development and competitive coding.  Proficient in Java, React, and various other web development technologies, possessing strong problem-solving skills and a deep understanding of Data Structures and Algorithms (DSA).  Seeking an internship or entry-level position to leverage my skills and contribute to a dynamic team.</p>
+    </section>
+    
+
+    <!-- Skills Section -->
+    
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 section-heading">Skills</h2>
+      <div class="flex flex-wrap gap-2">
+        
+          <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">react</span>
+        
+      </div>
+    </section>
+    
+
+    <!-- Experience Section -->
+    
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 section-heading">Professional Experience</h2>
+      
+        <div class="mb-4 last:mb-0">
+          <div class="flex justify-between items-baseline">
+            <h3 class="font-medium text-gray-900">Lead Developer</h3>
+            <span class="text-sm text-gray-600">2023-01 - 2023-05</span>
+          </div>
+          <div class="text-gray-700">Personal Project</div>
+          <p class="mt-1 text-gray-700">Developed a comprehensive study app encompassing video meetings, course management, and admin functionalities.</p>
+          
+            <ul class="mt-2 list-disc list-inside">
+              <li class="text-gray-700 text-sm ml-2">Designed and implemented the user interface using React for intuitive navigation and user experience.</li><li class="text-gray-700 text-sm ml-2">Developed backend functionalities using Node.js and Express.js for managing courses, users, and video conferencing.</li><li class="text-gray-700 text-sm ml-2">Integrated a secure payment gateway for in-app purchases.</li><li class="text-gray-700 text-sm ml-2">Implemented robust admin features for managing users, courses, and content.</li><li class="text-gray-700 text-sm ml-2">Successfully deployed the application to Netlify.</li>
+            </ul>
+          
+        </div>
+      
+        <div class="mb-4 last:mb-0">
+          <div class="flex justify-between items-baseline">
+            <h3 class="font-medium text-gray-900">Full-Stack Developer</h3>
+            <span class="text-sm text-gray-600">2022-09 - 2022-12</span>
+          </div>
+          <div class="text-gray-700">Personal Project</div>
+          <p class="mt-1 text-gray-700">Created a fully functional e-commerce shopping application with product browsing, cart management, secure payment processing, and admin panel.</p>
+          
+            <ul class="mt-2 list-disc list-inside">
+              <li class="text-gray-700 text-sm ml-2">Developed the front-end using React, incorporating features for product browsing, cart management, and order tracking.</li><li class="text-gray-700 text-sm ml-2">Built the backend using Node.js, Express.js, and MongoDB for handling product data, user accounts, and orders.</li><li class="text-gray-700 text-sm ml-2">Implemented secure payment processing using a secure gateway.</li><li class="text-gray-700 text-sm ml-2">Implemented session storage in the browser to enhance security and reduce local storage risks.</li><li class="text-gray-700 text-sm ml-2">Deployed the application using Heroku.</li>
+            </ul>
+          
+        </div>
+      
+        <div class="mb-4 last:mb-0">
+          <div class="flex justify-between items-baseline">
+            <h3 class="font-medium text-gray-900">Software Engineer</h3>
+            <span class="text-sm text-gray-600">2023-05 - 2023-07</span>
+          </div>
+          <div class="text-gray-700">Team Project (Andhra Pradesh)</div>
+          <p class="mt-1 text-gray-700">Contributed to the development of a solution to improve data transfer rates in a network.</p>
+          
+            <ul class="mt-2 list-disc list-inside">
+              <li class="text-gray-700 text-sm ml-2">Played a key role in implementing data compression techniques on blockchain packet frames to reduce gas fees and increase data transfer volume.</li><li class="text-gray-700 text-sm ml-2">Collaborated with a team to design and implement an efficient data transfer algorithm.</li><li class="text-gray-700 text-sm ml-2">Optimized network performance through code refactoring and algorithm improvements.</li><li class="text-gray-700 text-sm ml-2">Successfully deployed the solution and demonstrated a significant improvement in data transfer speed.</li><li class="text-gray-700 text-sm ml-2">Utilized Java for backend implementation.</li>
+            </ul>
+          
+        </div>
+      
+    </section>
+    
+
+    <!-- Education Section -->
+    
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 section-heading">Education</h2>
+      
+        <div class="mb-4 last:mb-0">
+          <div class="flex justify-between items-baseline">
+            <h3 class="font-medium text-gray-900">B.Tech in Computer Science and Business Systems in Computer Science and Business Systems</h3>
+            <span class="text-sm text-gray-600">2021-07 - 2025-05</span>
+          </div>
+          <div class="text-gray-700">University Name</div>
+          
+        </div>
+      
+    </section>
+    
+
+    <!-- Projects Section -->
+    
+    <section class="mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 section-heading">Projects</h2>
+      
+        <div class="mb-4 last:mb-0">
+          <h3 class="font-medium text-gray-900">Study App</h3>
+          <p class="mt-1 text-gray-700">A comprehensive study application featuring video conferencing, course management, and administrative functionalities.</p>
+          
+            <div class="mt-2 flex flex-wrap gap-1">
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">React</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">Node.js</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">Express.js</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">MongoDB</span>
+              
+            </div>
+          
+          <div class="mt-1 text-sm">
+            
+            
+          </div>
+        </div>
+      
+        <div class="mb-4 last:mb-0">
+          <h3 class="font-medium text-gray-900">E-commerce Shopping App</h3>
+          <p class="mt-1 text-gray-700">A fully functional e-commerce application with product browsing, cart management, secure payment processing, and an admin panel.</p>
+          
+            <div class="mt-2 flex flex-wrap gap-1">
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">React</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">Node.js</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">Express.js</span>
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">MongoDB</span>
+              
+            </div>
+          
+          <div class="mt-1 text-sm">
+            
+            
+          </div>
+        </div>
+      
+        <div class="mb-4 last:mb-0">
+          <h3 class="font-medium text-gray-900">Data Transfer Optimization System</h3>
+          <p class="mt-1 text-gray-700">A system designed to improve data transfer rates within a network, utilizing data compression techniques on blockchain packet frames.</p>
+          
+            <div class="mt-2 flex flex-wrap gap-1">
+              
+                <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xs">Java</span>
+              
+            </div>
+          
+          <div class="mt-1 text-sm">
+            
+            
+          </div>
+        </div>
+      
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="text-xs text-gray-500 text-center mt-8">
+      Generated on 9/4/2025 • Dhanush H • TrackPro Resume
+    </footer>
+  </div>
+</body>
+</html>
+      

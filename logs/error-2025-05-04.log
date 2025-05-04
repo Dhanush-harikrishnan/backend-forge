@@ -1,0 +1,18 @@
+2025-05-04 10:36:42 [error] : Fetch project error: Cast to ObjectId failed for value "community" (type string) at path "_id" for model "Project" {
+  "stringValue": "\"community\"",
+  "kind": "ObjectId",
+  "value": "community",
+  "path": "_id",
+  "reason": {},
+  "valueType": "string",
+  "stack": "CastError: Cast to ObjectId failed for value \"community\" (type string) at path \"_id\" for model \"Project\"\n    at SchemaObjectId.cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:4907:12)\n    at Query._castConditions (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:4456:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///C:/Users/dhanu/Downloads/New%20folder%20(2)/TrackPro/server/routes/projects.js:115:25"
+}
+2025-05-04 10:36:42 [error] : Fetch project error: Cast to ObjectId failed for value "community" (type string) at path "_id" for model "Project" {
+  "stringValue": "\"community\"",
+  "kind": "ObjectId",
+  "value": "community",
+  "path": "_id",
+  "reason": {},
+  "valueType": "string",
+  "stack": "CastError: Cast to ObjectId failed for value \"community\" (type string) at path \"_id\" for model \"Project\"\n    at SchemaObjectId.cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:4907:12)\n    at Query._castConditions (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (C:\\Users\\dhanu\\Downloads\\New folder (2)\\TrackPro\\server\\node_modules\\mongoose\\lib\\query.js:4456:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///C:/Users/dhanu/Downloads/New%20folder%20(2)/TrackPro/server/routes/projects.js:115:25"
+}
